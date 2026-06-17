@@ -19,12 +19,10 @@ overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-
-/* NEW COOL NIGHT GRADIENT */
 background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
-/* soft moving glow */
+/* soft glow */
 body::before{
 content:"";
 position:absolute;
@@ -105,7 +103,7 @@ font-size:1.1rem;
 color:#a8dadc;
 }
 
-/* HEART RAIN (BLUE WHITE STYLE) */
+/* heart rain */
 .heart{
 position:absolute;
 top:-10px;
@@ -128,7 +126,8 @@ animation: fall linear infinite;
 
 <h1>Happy Birthday, Ritu ❤️</h1>
 
-<img src="ritu.jpg" alt="Ritu">
+<!-- ✅ FIXED IMAGE -->
+<img src="img1.jpg" alt="Ritu">
 
 <h2 id="typing"></h2>
 
@@ -152,6 +151,7 @@ You are my feeling, my peace, my everything.
 </div>
 
 <script>
+
 function showLove(){
 document.getElementById("secret").style.display="block";
 }
@@ -185,6 +185,7 @@ setTimeout(()=>heart.remove(),8000);
 }
 
 setInterval(createHeart,250);
+
 </script>
 
 </body>

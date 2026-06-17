@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For RITU ❤️</title>
+<title>For Ritu ❤️</title>
 
 <style>
 *{
@@ -13,7 +14,7 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-body
+body{
 height:100vh;
 display:flex;
 justify-content:center;
@@ -45,8 +46,14 @@ margin:15px 0;
 }
 
 h1{
-font-size:2.8rem;
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+#typing{
 margin-bottom:15px;
+font-size:1.4rem;
+font-weight:bold;
 }
 
 p{
@@ -90,20 +97,21 @@ transform:translateY(-110vh);
 }
 </style>
 </head>
+
 <body>
-  <img src="ritu. pakhi.jpeg" alt="Ritu" width="300">
-  
 
 <div class="card">
+
 <h1>Happy Birthday, Ritu ❤️</h1>
 
-<img src="ritu. pakhi.jpeg" alt="Ritu" width="200">
+<img src="ritu. pakhi.jpeg" alt="Ritu">
+
+<h2 id="typing"></h2>
 
 <p>
-Amar Pakhi(RITU) 🕊️,<br><br>
+Amar Pakhi (Ritu) 🕊️,<br><br>
 
-
-Happy Birthday, MY GIRL 🎂❤️<br><br>
+Happy Birthday My Girl 🎂❤️<br><br>
 
 Aajker din ta amar jonne onek special,
 karon ei dine tumi eshechhile prithibite. 🌸<br><br>
@@ -113,9 +121,10 @@ jiboner protita muhurto hok shundor,
 ar protita shopno hok puro. ✨<br><br>
 
 Ar mone rekho,
-amar bhalobasha shobshomoy tomar shathe thakbe. ❤️
-  YOU KNOW FARUK LOVES YOU ALOT.
-  I ALWAYS WITH YOU FOREVER INSHA ALLAH
+amar bhalobasha shobshomoy tomar shathe thakbe. ❤️<br><br>
+
+You Know Faruk Loves You A Lot ❤️<br>
+I Am Always With You Forever, Insha Allah 🤍
 </p>
 
 <button onclick="showLove()">Click Here Pakhi ❤️</button>
@@ -126,6 +135,7 @@ favorite smile, ar favorite feeling.
 <br><br>
 I Love You Forever ❤️🕊️
 </div>
+
 </div>
 
 <script>
@@ -142,7 +152,20 @@ heart.style.fontSize=(15+Math.random()*25)+"px";
 heart.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(heart);
 }
+
+let text = "I Love You Ritu ❤️";
+let i = 0;
+
+function type() {
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(type,100);
+}
+}
+type();
 </script>
 
 </body>
 </html>
+```

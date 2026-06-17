@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,23 +15,33 @@ font-family:Arial,sans-serif;
 
 body{
 height:100vh;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
-overflow:hidden;
+background: linear-gradient(-45deg,#ff4d6d,#ff758c,#ff7eb3,#ffb3c6);
+background-size: 400% 400%;
+animation: bg 10s ease infinite;
+}
+
+/* background animation */
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 .card{
 width:90%;
 max-width:700px;
-padding:35px;
+padding:30px;
 text-align:center;
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(15px);
 border-radius:25px;
 color:white;
-box-shadow:0 8px 30px rgba(0,0,0,0.2);
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+position:relative;
 z-index:2;
 }
 
@@ -43,22 +52,23 @@ object-fit:cover;
 border-radius:50%;
 border:4px solid white;
 margin:15px 0;
+box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
 h1{
-font-size:2.5rem;
+font-size:2.3rem;
 margin-bottom:10px;
 }
 
 #typing{
-margin-bottom:15px;
-font-size:1.4rem;
+font-size:1.3rem;
 font-weight:bold;
+margin-bottom:15px;
 }
 
 p{
-line-height:1.8;
-font-size:1.1rem;
+line-height:1.7;
+font-size:1.05rem;
 }
 
 button{
@@ -71,32 +81,35 @@ color:#ff4d6d;
 font-weight:bold;
 cursor:pointer;
 font-size:1rem;
+transition:0.3s;
 }
-  audio{
-margin-top:20px;
-width:100%;
+
+button:hover{
+transform:scale(1.05);
 }
 
 #secret{
 display:none;
 margin-top:20px;
-font-size:1.2rem;
+font-size:1.1rem;
 }
 
+/* HEART RAIN */
 .heart{
 position:absolute;
-bottom:-20px;
-color:white;
-animation:float 7s linear infinite;
-opacity:.7;
+top:-10px;
+color:#fff;
+font-size:20px;
+animation: fall linear infinite;
+opacity:0.8;
 }
 
-@keyframes float{
+@keyframes fall{
 0%{
-transform:translateY(0);
+transform:translateY(-10vh) rotate(0deg);
 }
 100%{
-transform:translateY(-110vh);
+transform:translateY(110vh) rotate(360deg);
 }
 }
 </style>
@@ -108,7 +121,7 @@ transform:translateY(-110vh);
 
 <h1>Happy Birthday, Ritu ❤️</h1>
 
-<img src="ritu. pakhi.jpeg" alt="Ritu">
+<img src="ritu_pakhi.jpeg" alt="Ritu">
 
 <h2 id="typing"></h2>
 
@@ -117,29 +130,17 @@ Amar Pakhi (Ritu) 🕊️,<br><br>
 
 Happy Birthday My Girl 🎂❤️<br><br>
 
-Aajker din ta amar jonne onek special,
-karon ei dine tumi eshechhile prithibite. 🌸<br><br>
+Tumi amar life er best feeling ✨<br>
+Tomar jonno shob shomoy doa thakbe ❤️<br><br>
 
-Tomar jonno amar doa —
-jiboner protita muhurto hok shundor,
-ar protita shopno hok puro. ✨<br><br>
-
-Ar mone rekho,
-amar bhalobasha shobshomoy tomar shathe thakbe. ❤️<br><br>
-
-You Know Faruk Loves You A Lot ❤️<br>
-I Am Always With You Forever, Insha Allah 🤍
+I promise, amar bhalobasha shob shomoy thakbe 🤍
 </p>
 
-<button onclick="showLove()">Click Here Pakhi ❤️</button>
-<audio controls autoplay loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+<button onclick="showLove()">Click Here Pakhi 💌</button>
+
 <div id="secret">
-💌 Pakhi, tumi amar favorite person,
-favorite smile, ar favorite feeling.
-<br><br>
-I Love You Forever ❤️🕊️
+💖 Tumi amar shob kichu...<br>
+Forever with you ❤️🕊️
 </div>
 
 </div>
@@ -149,29 +150,38 @@ function showLove(){
 document.getElementById("secret").style.display="block";
 }
 
-for(let i=0;i<30;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*25)+"px";
-heart.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(heart);
-}
-
+/* typing effect */
 let text = "I Love You Ritu ❤️";
 let i = 0;
 
-function type() {
+function type(){
 if(i < text.length){
-document.getElementById("typing").innerHTML += text.charAt(i);
+document.getElementById("typing").innerHTML += text[i];
 i++;
 setTimeout(type,100);
 }
 }
 type();
+
+/* HEART RAIN */
+function createHeart(){
+let heart = document.createElement("div");
+heart.className = "heart";
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = (15 + Math.random() * 20) + "px";
+heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+}
+
+setInterval(createHeart,200);
 </script>
 
 </body>
 </html>
-
